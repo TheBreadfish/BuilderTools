@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W/E Noise Generator</title>
+</head>
+<body>
+    <h1>W/E Noise Generator</h1>
+    <br>
+    <label for="noiseSel">Noise Type: </label>
+    <select name="noiseSel" id="noiseSel">
+        <option value="per">Perlin</option>
+        <option value="rm">RidgedMulti</option>
+        <option value="vor">Voronoi</option>
+    </select>
+    <br>
+    <div style="display:none" id="hidden">
+        <h2 id="noiseDisp"></h2>
+
+        <label for="blocks">Blocks: </label>
+        <input id="blocks" type="text" value="Stone" class="input">
+        <br>
+
+        <label for="seed">Seed: </label>
+        <input id="seed" type="number" value="123" class="input">
+        <button onclick="
+            document.getElementById('seed').value=Math.floor(Math.random()*10000000000);
+            updateCmd(noiseSel.options[noiseSel.selectedIndex].text)"
+        >Random</button>
+        <br><br>
+        <label for="x">X: </label>
+        <input id="x" type="text" value="x" class="input">
+        <br>
+        <label for="y">Y: </label>
+        <input id="y" type="text" value="y" class="input">
+        <br>
+        <label for="z">Z: </label>
+        <input id="z" type="text" value="z" class="input">
+        <br><br>
+        <label for="thresh">Threshold: </label>
+        <input id="thresh" type="text" value=">0.5" class="input">
+        <br><br>
+        <label for="freq">Frequency: </label>
+        <input id="freq" type="number" value="0.1" class="input" step="0.01" min="0">
+
+        <div id="per/rm" style="display:none">
+
+        <br>
+        <label for="octa">Octaves: </label>
+        <input id="octa" type="number" value="1" class="input" step="1" min="1">
+        <br>
+        
+            <div id="per" style="display:none">
+
+                <label for="pers">Persistence: </label>
+                <input id="pers" type="number" value="0" class="input" step="0.01" max="1" min="0">
+
+            </div>
+        </div>
+
+    </div>
+
+    <br><br><br>
+    <button id="gen">Generate</button>
+
+    <br>
+    <h2 id="output">
+        
+    </h2>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="js/script.js"></script>
+</html>
